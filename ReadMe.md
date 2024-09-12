@@ -102,19 +102,19 @@ THEN I should have proper build scripts for a webpack application
 
 **Mock-Up:**
 
-![Demonstration of the finished Module 19 Challenge being used in the browser and then installed.](../Challenge-19-PWA/Develop/client/assets/demo.png)
+![Demonstration of the finished Module 19 Challenge being used in the browser and then installed.](./Develop/client/assets/demo.png)
 
 **Manifest File:**
 
-![Demonstration of the finished Module 19 Challenge with a manifest file in the browser.](../Challenge-19-PWA/Develop/client/assets/Manifest.png)
+![Demonstration of the finished Module 19 Challenge with a manifest file in the browser.](./Develop/client/assets/Manifest.png)
 
 **Registered Service Worker:**
 
-![Demonstration of the finished Module 19 Challenge with a registered service worker in the browser.](../Challenge-19-PWA/Develop/client/assets/Service-worker.png)
+![Demonstration of the finished Module 19 Challenge with a registered service worker in the browser.](./Develop/client/assets/Service-worker.png)
 
 **IndexedDB Storage:**
 
-![Demonstration of the finished Module 19 Challenge with an IndexedDB storage named 'jate' in the browser.](../Challenge-19-PWA/Develop/client/assets/Idb-storage.png)
+![Demonstration of the finished Module 19 Challenge with an IndexedDB storage named 'jate' in the browser.](./Develop/client/assets/Idb-storage.png)
 
 ## Contributing
 
