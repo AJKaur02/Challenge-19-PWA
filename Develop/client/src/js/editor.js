@@ -1,23 +1,17 @@
+// Import methods to save and get data from the indexedDB database in './database.js'
 import { getDb, putDb } from './database';
 import { header } from './header';
 
 export default class {
   constructor() {
     const localData = localStorage.getItem('content');
-    const editorElement = document.querySelector('#main');
 
-    // Ensure the editor element exists
-    if (!editorElement) {
-      throw new Error('#main element not found');
-    }
-
-    // Check if CodeMirror is loaded
+    // check if CodeMirror is loaded
     if (typeof CodeMirror === 'undefined') {
       throw new Error('CodeMirror is not loaded');
     }
 
-    // Initialize CodeMirror
-    this.editor = CodeMirror(editorElement, {
+    this.editor = CodeMirror(document.querySelector('#main'), {
       value: '',
       mode: 'javascript',
       theme: 'monokai',
@@ -28,18 +22,18 @@ export default class {
       tabSize: 2,
     });
 
-    // Load data from IndexedDB or fallback to localStorage or header
+    // When the editor is ready, set the value to whatever is stored in indexeddb.
+    // Fall back to localStorage if nothing is stored in indexeddb, and if neither is available, set the value to header.
     getDb().then((data) => {
       console.info('Loaded data from IndexedDB, injecting into editor');
       this.editor.setValue(data || localData || header);
     });
 
-    // Save editor content in localStorage on change
     this.editor.on('change', () => {
       localStorage.setItem('content', this.editor.getValue());
     });
 
-    // Save content to IndexedDB when editor loses focus
+    // Save the content of the editor when the editor itself is loses focus
     this.editor.on('blur', () => {
       console.log('The editor has lost focus');
       putDb(localStorage.getItem('content'));
